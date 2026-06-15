@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "@/lib/CartContext";
 
 import "swiper/css";
 import "swiper/css/navigation";
