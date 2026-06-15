@@ -7,6 +7,20 @@ import Footer from "@/components/Footer";
 
 const ADMIN_USER_ID = "user_3ERVagEbBBtQoneJM1iKtwcw17C";
 
+interface Order {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string | null;
+  items: { id: number; name: string; price: number; quantity: number }[];
+  totalAmount: number;
+  paymentMethod: string;
+  status: string;
+  mpesaReceiptNumber: string | null;
+  createdAt: string;
+}
+
 interface Booking {
   id: string;
   name: string;
