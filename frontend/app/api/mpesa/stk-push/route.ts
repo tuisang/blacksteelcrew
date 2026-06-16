@@ -76,6 +76,9 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("STK push error:", error);
-    return NextResponse.json({ error: "Failed to initiate payment." }, { status: 500 });
+    return NextResponse.json({ 
+      error: "Failed to initiate payment.",
+      details: error instanceof Error ? error.message : String(error)
+    }, { status: 500 });
   }
 }
