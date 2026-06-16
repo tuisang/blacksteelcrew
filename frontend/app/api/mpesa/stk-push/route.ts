@@ -67,8 +67,8 @@ export async function POST(req: NextRequest) {
         PartyB: SHORTCODE,
         PhoneNumber: formattedPhone,
         CallBackURL: CALLBACK_URL,
-        AccountReference: `FT-${bookingId}`,
-        TransactionDesc: "Forge & Timber Consultation Fee",
+        AccountReference: "ForgeTimber",
+        TransactionDesc: "Consultation Fee",
       }),
     });
 
