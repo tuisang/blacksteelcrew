@@ -16,10 +16,16 @@ async function getAccessToken(): Promise<string> {
   const res = await fetch(`${MPESA_BASE}/oauth/v1/generate?grant_type=client_credentials`, {
     headers: { Authorization: `Basic ${auth}` },
   });
-  const data = await res.json();
-  return data.access_token;
+  const text = await res.text();
+  console.log("Access token response:", text);
+  try {
+    const data = JSON.parse(text);
+    if (!data.access_token) throw new Error(`No access token: ${text}`);
+    return data.access_token;
+  } catch {
+    throw new Error(`Token parse failed: ${text}`);
+  }
 }
-
 export async function POST(req: NextRequest) {
   try {
     const { phone, bookingId } = await req.json();
