@@ -82,7 +82,7 @@ const products = [
 ];
 
 export default function ProductCarousel() {
-  const { cart, addToCart } = useCart();
+  const { cart = [], addToCart } = useCart();
   const [quantities, setQuantities] = useState<Record<number, number>>({});
 
   const updateQuantity = (id: number, change: number) => {
