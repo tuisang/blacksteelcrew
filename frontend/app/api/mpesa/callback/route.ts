@@ -31,23 +31,30 @@ export async function POST(req: NextRequest) {
         },
       });
 
-      // Send confirmation email
+      console.log(`✅ Booking payment confirmed: ${mpesaReceiptNumber}`);
+
       const booking = await prisma.booking.findFirst({
         where: { mpesaCheckoutId: checkoutRequestId },
       });
 
       if (booking) {
-        await sendBookingConfirmationEmail({
-          clientName: booking.name,
-          clientEmail: booking.email,
-          service: booking.service,
-          date: booking.date,
-          paymentMethod: "M-Pesa",
-          bookingId: booking.id,
-        });
+        console.log(`📧 Sending email to ${booking.email}`);
+        try {
+          await sendBookingConfirmationEmail({
+            clientName: booking.name,
+            clientEmail: booking.email,
+            service: booking.service,
+            date: booking.date,
+            paymentMethod: "M-Pesa",
+            bookingId: booking.id,
+          });
+          console.log(`✅ Email sent to ${booking.email}`);
+        } catch (emailError) {
+          console.error("❌ Email failed:", emailError);
+        }
+      } else {
+        console.log(`⚠️ No booking found for checkoutId: ${checkoutRequestId}`);
       }
-
-      console.log(`✅ Booking payment confirmed: ${mpesaReceiptNumber}`);
     } else {
       await prisma.booking.updateMany({
         where: { mpesaCheckoutId: checkoutRequestId },
