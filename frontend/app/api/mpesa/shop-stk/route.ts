@@ -7,8 +7,8 @@ const CONSUMER_KEY = process.env.MPESA_CONSUMER_KEY!;
 const CONSUMER_SECRET = process.env.MPESA_CONSUMER_SECRET!;
 const CALLBACK_URL = process.env.MPESA_SHOP_CALLBACK_URL
   ?? process.env.MPESA_CALLBACK_URL?.replace("/api/mpesa/callback", "/api/mpesa/shop-callback")
-  ?? "https://tuistech.co.ke/api/mpesa/shop-callback";
-const IS_PRODUCTION = process.env.NODE_ENV === "production";
+  ?? "https://forgetimber.tuistech.co.ke/api/mpesa/shop-callback";
+const IS_PRODUCTION = process.env.MPESA_ENVIRONMENT === "production";
 const MPESA_BASE = IS_PRODUCTION
   ? "https://api.safaricom.co.ke"
   : "https://sandbox.safaricom.co.ke";
@@ -18,8 +18,14 @@ async function getAccessToken(): Promise<string> {
   const res = await fetch(`${MPESA_BASE}/oauth/v1/generate?grant_type=client_credentials`, {
     headers: { Authorization: `Basic ${auth}` },
   });
-  const data = await res.json();
-  return data.access_token;
+  const text = await res.text();
+  try {
+    const data = JSON.parse(text);
+    if (!data.access_token) throw new Error(`No access token: ${text}`);
+    return data.access_token;
+  } catch {
+    throw new Error(`Token parse failed: ${text}`);
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -34,8 +40,6 @@ export async function POST(req: NextRequest) {
     const accessToken = await getAccessToken();
     const timestamp = new Date().toISOString().replace(/[-T:.Z]/g, "").slice(0, 14);
     const password = Buffer.from(`${SHORTCODE}${PASSKEY}${timestamp}`).toString("base64");
-
-    // Use real amount in production, KES 1 in sandbox for testing
     const payableAmount = IS_PRODUCTION ? amount : 1;
 
     const stkRes = await fetch(`${MPESA_BASE}/mpesa/stkpush/v1/processrequest`, {
@@ -51,16 +55,23 @@ export async function POST(req: NextRequest) {
         PartyB: SHORTCODE,
         PhoneNumber: formattedPhone,
         CallBackURL: CALLBACK_URL,
-        AccountReference: `FT-SHOP-${orderId}`,
-        TransactionDesc: "Forge & Timber Shop Order",
+        AccountReference: "FTShop",
+        TransactionDesc: "Shop Order",
       }),
     });
 
-    const stkData = await stkRes.json();
+    const stkText = await stkRes.text();
+    let stkData;
+    try {
+      stkData = JSON.parse(stkText);
+    } catch {
+      console.error("STK response not JSON:", stkText);
+      return NextResponse.json({ error: "Invalid response from M-Pesa.", raw: stkText }, { status: 502 });
+    }
 
     if (stkData.ResponseCode !== "0") {
       return NextResponse.json(
-        { error: stkData.ResponseDescription ?? "STK push failed." },
+        { error: stkData.ResponseDescription ?? "STK push failed.", mpesaResponse: stkData },
         { status: 400 }
       );
     }
@@ -77,6 +88,9 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("Shop STK push error:", error);
-    return NextResponse.json({ error: "Failed to initiate payment." }, { status: 500 });
+    return NextResponse.json({
+      error: "Failed to initiate payment.",
+      details: error instanceof Error ? error.message : String(error),
+    }, { status: 500 });
   }
 }
