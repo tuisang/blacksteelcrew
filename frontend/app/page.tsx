@@ -40,6 +40,8 @@ const TOOLS = [
   { id: 10, name: "Woodwaf", image: "/tools/woodwaf.jpg", price: 17500, reviews: 85 },
 ];
 
+const USD_KES_RATE = 130; // approximate, update periodically
+
 export default function HomePage() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Omit<CartItem, "quantity"> | null>(null);
@@ -182,8 +184,11 @@ export default function HomePage() {
                 <div className="absolute top-4 left-4">
                   <h3 className="text-white font-bold text-lg">{tool.name}</h3>
                 </div>
-                <div className="absolute top-4 right-4 bg-[#e8bf9b] text-black px-3 py-1 rounded-full font-semibold text-sm">
-                  KSh {tool.price.toLocaleString()}
+                <div className="absolute top-4 right-4 bg-[#e8bf9b] text-black px-3 py-1 rounded-full font-semibold text-sm flex flex-col items-end leading-tight">
+                  <span>KSh {tool.price.toLocaleString()}</span>
+                  <span className="text-[10px] font-normal opacity-70">
+                    ≈ ${Math.round(tool.price / USD_KES_RATE).toLocaleString()}
+                  </span>
                 </div>
                 <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm p-3 rounded-xl w-[190px]">
                   <div className="flex items-center justify-between mb-2">
@@ -277,7 +282,7 @@ export default function HomePage() {
               </div>
             </div>
             {[
-              { title: "Atelier Lounge Chair", price: "KSh 42,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwS7wlO36JLC7GUM3S9uGNXLpR0jjPAsosoMvYf7gPDwAVP7uj-ls9JSQ4qXkjDWkWhLpDXWSXuLlPaGthnASB9ULvK1bsfDYLmE29HPqVyyrZo6593sQv6UmB4I1NQcHJVa9g9mjNiqnSAJlrxHIZygzWzR7XeKsAuNPVd95L1s8BhpPFye_CGZbgvcLpeEbEpftm20AcfFA_M0HNq6frUv5-SwqFB5ychmZaQDlS0NMFI_XFpMFvwUZt7spk897a91_T6G8-B6uM", span: "md:col-span-2" },
+              { title: "Atelier Lounge Chair", price: 42000, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwS7wlO36JLC7GUM3S9uGNXLpR0jjPAsosoMvYf7gPDwAVP7uj-ls9JSQ4qXkjDWkWhLpDXWSXuLlPaGthnASB9ULvK1bsfDYLmE29HPqVyyrZo6593sQv6UmB4I1NQcHJVa9g9mjNiqnSAJlrxHIZygzWzR7XeKsAuNPVd95L1s8BhpPFye_CGZbgvcLpeEbEpftm20AcfFA_M0HNq6frUv5-SwqFB5ychmZaQDlS0NMFI_XFpMFvwUZt7spk897a91_T6G8-B6uM", span: "md:col-span-2" },
               { title: "Delta Side Table", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0Cc7JfnFfjZqm5GjaH81TolRX8tGrZ5TksDMXhHwVy6xPiFymwYCt4on_B8bUYyt_Es4h_maQ_03GafmiIBcbn0L56h3SxjsAUay1GiyERr1Hp4tpGdDH3zGR2YH6FYL5BTWrsZY7rj3XcLPtXDN6Us43UnMDvjvuJRJQjnn7_By-MKACx_yBk9r8QDggFsLyku9WcytmMRlVVTUnLgzYSVS4OYw-0b5WsSpVQexCc1tav0D65SsFg05x-yvok48OG0IA5qtaRSp9", span: "md:col-span-1" },
               { title: "Linear Floating Shelf", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDm8WP6lTxuBqt2ErtfPXYxPmG4LQI6E6sgCw4VM5JjbLsNoYPUMPARpEp_Fr-IF0LgxgN-3-P4EfwgxV_QKSCPQoLtObBNAclJNEVnXPTM9U4gl_kwdXaLftQqIfSfOlAqV7cEydwBXgLTvNLX7HRjDytA8sYvxrHG3xGQVsbT94ZIzgpkzydx6dPvo89ce7Y4tTgSoJRBjWT4cFCYrVzDuTv08QiBXefXN8ZxCIJ5qlkK0FX2-3IdyaGRdQDD0D52R8uwiSqJt5wG", span: "md:col-span-1" },
             ].map((item) => (
@@ -286,7 +291,16 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#131313]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   <h3 className="font-bold text-lg" style={{ fontFamily: "Playfair Display, serif" }}>{item.title}</h3>
-                  {item.price && <span className="text-[#e8bf9b] text-sm font-bold">{item.price}</span>}
+                  {item.price && (
+                    <div className="flex flex-col">
+                      <span className="text-[#e8bf9b] text-sm font-bold">
+                        KSh {item.price.toLocaleString()}
+                      </span>
+                      <span className="text-[#9c8e84] text-xs">
+                        ≈ ${Math.round(item.price / USD_KES_RATE).toLocaleString()}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
