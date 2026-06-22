@@ -276,7 +276,7 @@ export default function Footer() {
                 {
                   icon: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
                   label: "Expert Artisans",
-                  sub: "15+ years experience",
+                  sub: "7+ years experience",
                 },
                 {
                   icon: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10",
