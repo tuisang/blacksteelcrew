@@ -9,24 +9,32 @@ const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:streamGenerateContent?alt=sse&key=" +
   GEMINI_API_KEY;
 
-// ─── Admin: list all chat sessions ───────────────────────────────────────────
+// ─── Get chat sessions: admin sees all, regular users see only their own ────
 
 export async function GET() {
   const { userId } = await auth();
-  if (userId !== ADMIN_USER_ID)
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  if (!userId) {
+    return NextResponse.json({ sessions: [] });
+  }
 
   const sessions = await prisma.chatSession.findMany({
+    where: userId === ADMIN_USER_ID ? {} : { clerkUserId: userId },
     include: { messages: { orderBy: { createdAt: "asc" } } },
     orderBy: { createdAt: "desc" },
   });
   return NextResponse.json({ sessions });
 }
 
-// ─── Public: send a message and stream Gemini response ───────────────────────
+// ─── Signed-in: send a message and stream Gemini response ──────────────────
 
 export async function POST(req: NextRequest) {
   try {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { messages, sessionId } = await req.json();
 
     if (!messages || !Array.isArray(messages) || messages.length === 0) {
@@ -99,6 +107,7 @@ Guidelines:
         } else {
           const session = await prisma.chatSession.create({
             data: {
+              clerkUserId: userId,
               messages: {
                 create: {
                   role: "user",
