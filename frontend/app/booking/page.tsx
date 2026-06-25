@@ -163,7 +163,7 @@ export default function BookingPage() {
   const isSubmitting = submitStatus === "creating" || submitStatus === "stk_sent";
 
   return (
-    <main className="bg-[#131313] text-[#e5e2e1] relative">
+    <main className="bg-[#131314] text-[#e5e2e3] relative">
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.05]"
         style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/dark-matter.png')" }}
@@ -175,29 +175,29 @@ export default function BookingPage() {
           <span className="text-xs text-[#ffb785] uppercase tracking-[0.2em] mb-4 block" style={{ fontFamily: "JetBrains Mono, monospace" }}>
             Secure Reservation
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-3xl leading-tight" style={{ fontFamily: "Playfair Display, serif", letterSpacing: "-0.02em" }}>
-            Secure Your Masterpiece Consultation.
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-3xl leading-tight" style={{ fontFamily: "Archivo Narrow, sans-serif", letterSpacing: "-0.02em" }}>
+            Secure Your Fabrication Consultation.
           </h1>
-          <p className="text-lg text-[#d3c4b9] max-w-2xl leading-relaxed">
-            Connect with our head artisans to discuss bespoke woodworking and structural metal forging.
+          <p className="text-lg text-[#bac9cd] max-w-2xl leading-relaxed">
+            Connect with our fabrication team to discuss your custom steelwork project.
           </p>
         </header>
 
         {/* STK Push Waiting State */}
         {submitStatus === "stk_sent" && (
-          <div className="mb-10 p-8 bg-[#20201f] border border-[#4f453d] border-l-4 border-l-[#39b54a]">
+          <div className="mb-10 p-8 bg-[#201f20] border border-[#3b494c] border-l-4 border-l-[#39b54a]">
             <div className="flex items-start gap-6">
               <div className="w-14 h-14 bg-[#39b54a]/10 border border-[#39b54a]/30 flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl">📱</span>
               </div>
               <div>
-                <p className="font-semibold text-lg text-[#39b54a] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
+                <p className="font-semibold text-lg text-[#39b54a] mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
                   Check Your Phone
                 </p>
-                <p className="text-[#d3c4b9] mb-3">
-                  An M-Pesa STK push has been sent to <span className="text-[#e8bf9b] font-semibold">{formData.phone}</span>. Enter your M-Pesa PIN to confirm payment of <span className="text-[#e8bf9b] font-semibold">KES 5,000</span>.
+                <p className="text-[#bac9cd] mb-3">
+                  An M-Pesa STK push has been sent to <span className="text-[#00daf8] font-semibold">{formData.phone}</span>. Enter your M-Pesa PIN to confirm payment of <span className="text-[#00daf8] font-semibold">KES 2,000</span>.
                 </p>
-                <div className="flex items-center gap-3 text-sm text-[#9c8e84]">
+                <div className="flex items-center gap-3 text-sm text-[#859397]">
                   <div className="flex gap-1">
                     {[0,1,2].map((i) => (
                       <div key={i} className="w-2 h-2 bg-[#39b54a] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
@@ -206,7 +206,7 @@ export default function BookingPage() {
                   <span style={{ fontFamily: "JetBrains Mono, monospace" }}>WAITING FOR CONFIRMATION...</span>
                 </div>
                 {checkoutId && (
-                  <p className="text-xs text-[#4f453d] mt-3" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                  <p className="text-xs text-[#3b494c] mt-3" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                     REF: {checkoutId}
                   </p>
                 )}
@@ -217,21 +217,21 @@ export default function BookingPage() {
 
         {/* Success State */}
         {submitStatus === "confirmed" && (
-          <div className="mb-10 p-8 bg-[#20201f] border border-[#4f453d] border-l-4 border-l-[#e8bf9b]">
+          <div className="mb-10 p-8 bg-[#201f20] border border-[#3b494c] border-l-4 border-l-[#00daf8]">
             <div className="flex items-start gap-6">
-              <div className="w-14 h-14 bg-[#e8bf9b]/10 border border-[#e8bf9b]/30 flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-[#e8bf9b] text-3xl">check_circle</span>
+              <div className="w-14 h-14 bg-[#00daf8]/10 border border-[#00daf8]/30 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-[#00daf8] text-3xl">check_circle</span>
               </div>
               <div>
-                <p className="font-semibold text-xl text-[#e8bf9b] mb-2" style={{ fontFamily: "Playfair Display, serif" }}>
+                <p className="font-semibold text-xl text-[#00daf8] mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
                   Booking Confirmed!
                 </p>
-                <p className="text-[#d3c4b9] mb-2">
+                <p className="text-[#bac9cd] mb-2">
                   Your consultation has been booked successfully. We&apos;ll reach out to{" "}
-                  <span className="text-[#e8bf9b]">{formData.email}</span> shortly.
+                  <span className="text-[#00daf8]">{formData.email}</span> shortly.
                 </p>
                 {bookingId && (
-                  <p className="text-xs text-[#9c8e84]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                  <p className="text-xs text-[#859397]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                     BOOKING ID: {bookingId}
                   </p>
                 )}
@@ -242,11 +242,11 @@ export default function BookingPage() {
 
         {/* Error State */}
         {(submitStatus === "error" || errorMsg) && (
-          <div className="mb-10 p-6 bg-[#20201f] border-l-4 border-red-500 flex items-center gap-4">
+          <div className="mb-10 p-6 bg-[#201f20] border-l-4 border-red-500 flex items-center gap-4">
             <span className="material-symbols-outlined text-red-400 text-3xl">error</span>
             <div>
               <p className="font-semibold text-red-400">Error</p>
-              <p className="text-sm text-[#d3c4b9]">{errorMsg ?? "Something went wrong. Please try again."}</p>
+              <p className="text-sm text-[#bac9cd]">{errorMsg ?? "Something went wrong. Please try again."}</p>
             </div>
           </div>
         )}
@@ -260,28 +260,31 @@ export default function BookingPage() {
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <span className="material-symbols-outlined text-9xl">carpenter</span>
               </div>
-              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Playfair Display, serif" }}>
-                <span className="text-[#e8bf9b] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>01</span>
+              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+                <span className="text-[#00daf8] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>01</span>
                 Service Selection
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  { id: "furniture", icon: "chair_alt", title: "Bespoke Furniture", desc: "Custom tables, seating, and cabinetry crafted from kiln-dried hardwoods." },
-                  { id: "metal", icon: "architecture", title: "Architectural Metal", desc: "Industrial stairs, railings, and structural accents in steel and copper." },
+                  { id: "gates", icon: "fence", title: "Custom Gates", desc: "Driveway and security gates, laser-cut patterns or traditional forge-work." },
+                  { id: "railings", icon: "architecture", title: "Railings & Balustrades", desc: "Stainless steel and glass balustrades for safety and aesthetics." },
+                  { id: "staircases", icon: "stairs", title: "Staircase Fabrication", desc: "Floating, spiral, or heavy-duty industrial spine designs." },
+                  { id: "furniture", icon: "chair_alt", title: "Custom Furniture", desc: "Hand-forged steel furniture, some with warm wood-accent tabletops." },
+                  { id: "welding", icon: "precision_manufacturing", title: "Precision Welding", desc: "TIG, MIG and Arc welding for bespoke structural needs." },
                 ].map((service) => (
                   <div
                     key={service.id}
                     onClick={() => !isSubmitting && setSelectedService(service.id)}
-                    className={`cursor-pointer border p-6 transition-all bg-[#1c1b1b] ${
-                      selectedService === service.id ? "border-[#e8bf9b]" : "border-[#4f453d] hover:border-[#e8bf9b]"
+                    className={`cursor-pointer border p-6 transition-all bg-[#1c1b1c] ${
+                      selectedService === service.id ? "border-[#00daf8]" : "border-[#3b494c] hover:border-[#00daf8]"
                     }`}
                   >
                     <div className="flex justify-between items-start mb-4">
-                      <span className="material-symbols-outlined text-[#e8bf9b] text-3xl">{service.icon}</span>
-                      <div className={`w-4 h-4 rounded-full border transition-colors ${selectedService === service.id ? "bg-[#e8bf9b] border-[#e8bf9b]" : "border-[#9c8e84]"}`} />
+                      <span className="material-symbols-outlined text-[#00daf8] text-3xl">{service.icon}</span>
+                      <div className={`w-4 h-4 rounded-full border transition-colors ${selectedService === service.id ? "bg-[#00daf8] border-[#00daf8]" : "border-[#859397]"}`} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Playfair Display, serif" }}>{service.title}</h3>
-                    <p className="text-[#d3c4b9] text-sm">{service.desc}</p>
+                    <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>{service.title}</h3>
+                    <p className="text-[#bac9cd] text-sm">{service.desc}</p>
                   </div>
                 ))}
               </div>
@@ -289,33 +292,33 @@ export default function BookingPage() {
 
             {/* Step 2: Schedule & Contact */}
             <section className="p-8 md:p-12" style={{ background: "rgba(32,32,31,0.7)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(232,191,155,0.1)" }}>
-              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Playfair Display, serif" }}>
-                <span className="text-[#e8bf9b] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>02</span>
+              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+                <span className="text-[#00daf8] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>02</span>
                 Schedule &amp; Contact
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Calendar */}
                 <div>
-                  <label className="text-xs text-[#d3c4b9] mb-4 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>Select Date</label>
-                  <div className="bg-[#2a2a2a] p-4 border border-[#4f453d]">
+                  <label className="text-xs text-[#bac9cd] mb-4 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>Select Date</label>
+                  <div className="bg-[#2a2a2b] p-4 border border-[#3b494c]">
                     <div className="flex justify-between items-center mb-6 px-2">
                       <span className="font-bold">{MONTH_NAMES[viewMonth]} {viewYear}</span>
                       <div className="flex gap-4">
                         <span
                           onClick={goToPrevMonth}
-                          className="material-symbols-outlined cursor-pointer hover:text-[#e8bf9b]"
+                          className="material-symbols-outlined cursor-pointer hover:text-[#00daf8]"
                         >
                           chevron_left
                         </span>
                         <span
                           onClick={goToNextMonth}
-                          className="material-symbols-outlined cursor-pointer hover:text-[#e8bf9b]"
+                          className="material-symbols-outlined cursor-pointer hover:text-[#00daf8]"
                         >
                           chevron_right
                         </span>
                       </div>
                     </div>
-                    <div className="grid grid-cols-7 gap-2 text-center text-xs text-[#9c8e84] mb-4" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                    <div className="grid grid-cols-7 gap-2 text-center text-xs text-[#859397] mb-4" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                       {["S","M","T","W","T","F","S"].map((d, i) => <span key={i}>{d}</span>)}
                     </div>
                     <div className="grid grid-cols-7 gap-2 text-center text-sm">
@@ -337,10 +340,10 @@ export default function BookingPage() {
                             onClick={() => !isSubmitting && !isPast && setSelectedDate(cellDate)}
                             className={`py-2 transition-colors ${
                               isPast
-                                ? "text-[#4f453d] cursor-not-allowed"
+                                ? "text-[#3b494c] cursor-not-allowed"
                                 : isSelected
-                                ? "bg-[#e8bf9b] text-[#442b12] font-bold cursor-pointer"
-                                : "cursor-pointer hover:bg-[#8c6a4c]/30 hover:text-[#e8bf9b]"
+                                ? "bg-[#00daf8] text-[#001f25] font-bold cursor-pointer"
+                                : "cursor-pointer hover:bg-[#00b8d4]/30 hover:text-[#00daf8]"
                             }`}
                           >
                             {d}
@@ -358,14 +361,14 @@ export default function BookingPage() {
                     { label: "Phone (For M-Pesa STK)", placeholder: "+254 7XX XXX XXX", type: "tel", field: "phone" as keyof FormData },
                     { label: "Email Address", placeholder: "info@tuistech.co.ke", type: "email", field: "email" as keyof FormData },                  ].map((f) => (
                     <div key={f.label}>
-                      <label className="text-xs text-[#d3c4b9] mb-1 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{f.label}</label>
+                      <label className="text-xs text-[#bac9cd] mb-1 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{f.label}</label>
                       <input
                         type={f.type}
                         placeholder={f.placeholder}
                         value={formData[f.field]}
                         onChange={(e) => handleInput(f.field, e.target.value)}
                         disabled={isSubmitting}
-                        className="w-full py-2 bg-transparent border-b border-[#4f453d] focus:border-[#ffb785] outline-none text-[#e5e2e1] placeholder-[#9c8e84] transition-all disabled:opacity-50"
+                        className="w-full py-2 bg-transparent border-b border-[#3b494c] focus:border-[#ffb785] outline-none text-[#e5e2e3] placeholder-[#859397] transition-all disabled:opacity-50"
                       />
                     </div>
                   ))}
@@ -377,36 +380,36 @@ export default function BookingPage() {
           {/* Right: Summary & Payment */}
           <aside className="lg:col-span-5">
             <div className="sticky top-32">
-              <div className="bg-[#2a2a2a] border border-[#4f453d] p-8">
-                <h3 className="text-2xl font-semibold mb-6 pb-4 border-b border-[#4f453d]" style={{ fontFamily: "Playfair Display, serif" }}>
+              <div className="bg-[#2a2a2b] border border-[#3b494c] p-8">
+                <h3 className="text-2xl font-semibold mb-6 pb-4 border-b border-[#3b494c]" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
                   Booking Summary
                 </h3>
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between">
-                    <span className="text-[#d3c4b9]">Service</span>
+                    <span className="text-[#bac9cd]">Service</span>
                     <span className="text-xs tracking-widest capitalize" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                       {selectedService ?? "Not selected"}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#d3c4b9]">Date</span>
+                    <span className="text-[#bac9cd]">Date</span>
                     <span className="text-xs tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                       {formatSelectedDate(selectedDate)}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#d3c4b9]">Consultation Fee</span>
-                    <span className="text-xs tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>KES 5,000.00</span>
+                    <span className="text-[#bac9cd]">Consultation Fee</span>
+                    <span className="text-xs tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>KES 2,000.00</span>
                   </div>
-                  <div className="flex justify-between text-[#e8bf9b] font-bold pt-4 border-t border-[#4f453d]/30">
+                  <div className="flex justify-between text-[#00daf8] font-bold pt-4 border-t border-[#3b494c]/30">
                     <span>Total Payable</span>
-                    <span>KES 5,000.00</span>
+                    <span>KES 2,000.00</span>
                   </div>
                 </div>
 
                 {/* Payment Methods */}
                 <div className="space-y-4 mb-8">
-                  <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                  <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                     Payment Method
                   </label>
                   {[
@@ -417,10 +420,10 @@ export default function BookingPage() {
                     <label
                       key={method.id}
                       onClick={() => !isSubmitting && setPaymentMethod(method.id)}
-                      className="flex items-center justify-between p-4 border border-[#4f453d] cursor-pointer hover:bg-[#20201f] transition-colors"
+                      className="flex items-center justify-between p-4 border border-[#3b494c] cursor-pointer hover:bg-[#201f20] transition-colors"
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`w-4 h-4 rounded-full border transition-colors ${paymentMethod === method.id ? "bg-[#e8bf9b] border-[#e8bf9b]" : "border-[#9c8e84]"}`} />
+                        <div className={`w-4 h-4 rounded-full border transition-colors ${paymentMethod === method.id ? "bg-[#00daf8] border-[#00daf8]" : "border-[#859397]"}`} />
                         <span className="font-semibold text-sm">{method.label}</span>
                       </div>
                       {method.badge}
@@ -432,8 +435,8 @@ export default function BookingPage() {
                 {paymentMethod === "mpesa" && submitStatus === "idle" && (
                   <div className="mb-6 p-4 bg-[#39b54a]/10 border border-[#39b54a]/30 flex gap-3">
                     <span className="text-lg">📱</span>
-                    <p className="text-xs text-[#d3c4b9] leading-relaxed">
-                      You will receive an M-Pesa prompt on <span className="text-[#e8bf9b]">{formData.phone || "your phone"}</span>. Enter your PIN to complete payment.
+                    <p className="text-xs text-[#bac9cd] leading-relaxed">
+                      You will receive an M-Pesa prompt on <span className="text-[#00daf8]">{formData.phone || "your phone"}</span>. Enter your PIN to complete payment.
                     </p>
                   </div>
                 )}
@@ -443,8 +446,8 @@ export default function BookingPage() {
                   disabled={isSubmitting || submitStatus === "confirmed"}
                   className="w-full py-4 text-sm font-semibold uppercase tracking-widest transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{
-                    background: submitStatus === "confirmed" ? "#4f453d" : "#e8bf9b",
-                    color: submitStatus === "confirmed" ? "#9c8e84" : "#442b12",
+                    background: submitStatus === "confirmed" ? "#3b494c" : "#00daf8",
+                    color: submitStatus === "confirmed" ? "#859397" : "#001f25",
                     fontFamily: "JetBrains Mono, monospace",
                   }}
                 >
@@ -459,12 +462,12 @@ export default function BookingPage() {
                 <div className="mt-8 grid grid-cols-2 gap-4">
                   {[
                     { icon: "shield", label: "SSL Secured", sub: "256-bit encryption" },
-                    { icon: "verified", label: "Certified", sub: "Atelier Verified" },
+                    { icon: "verified", label: "Certified", sub: "Studio Verified" },
                   ].map((badge) => (
-                    <div key={badge.label} className="flex flex-col items-center p-4 border border-[#4f453d]/30 text-center">
-                      <span className="material-symbols-outlined text-[#e8bf9b] mb-2">{badge.icon}</span>
+                    <div key={badge.label} className="flex flex-col items-center p-4 border border-[#3b494c]/30 text-center">
+                      <span className="material-symbols-outlined text-[#00daf8] mb-2">{badge.icon}</span>
                       <p className="text-xs font-semibold">{badge.label}</p>
-                      <p className="text-[10px] text-[#9c8e84]">{badge.sub}</p>
+                      <p className="text-[10px] text-[#859397]">{badge.sub}</p>
                     </div>
                   ))}
                 </div>
