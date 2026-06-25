@@ -25,7 +25,7 @@ export default function Footer() {
 
   const Logo = () => (
     <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
-      <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#20201f" stroke="#00daf8" strokeWidth="1.5"/>
+      <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#201f20" stroke="#00daf8" strokeWidth="1.5"/>
       <line x1="10" y1="13" x2="26" y2="13" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
       <line x1="8" y1="17" x2="28" y2="17" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
       <line x1="10" y1="21" x2="26" y2="21" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>

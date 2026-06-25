@@ -70,38 +70,38 @@ export async function sendOrderConfirmationEmail(data: OrderEmailData) {
     orderAdminHtml({ clientName, clientEmail, orderId, items, totalAmount, paymentMethod, mpesaReceiptNumber }));
 }
 
-const baseStyle = `background:#131313;font-family:Georgia,serif;margin:0;padding:0;`;
+const baseStyle = `background:#131314;font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;`;
 const headerHtml = (subtitle: string) => `
   <tr>
-    <td style="background:#0e0e0e;border-top:3px solid #e8bf9b;padding:36px 40px;text-align:center;">
-      <h1 style="margin:0;color:#e8bf9b;font-size:26px;">Black Steel Crew</h1>
-      <p style="margin:6px 0 0;color:#9c8e84;font-size:11px;font-family:monospace;">ATELIER &middot; NAIROBI</p>
+    <td style="background:#1c1b1c;border-top:3px solid #00daf8;padding:36px 40px;text-align:center;">
+      <h1 style="margin:0;color:#00daf8;font-size:26px;">Black Steel Crew</h1>
+      <p style="margin:6px 0 0;color:#859397;font-size:11px;font-family:monospace;">FABRICATION STUDIO &middot; NAIROBI</p>
       <p style="margin:12px 0 0;color:#ffb785;font-size:11px;font-family:monospace;">${subtitle}</p>
     </td>
   </tr>`;
 
 const footerHtml = `
   <tr>
-    <td style="background:#0e0e0e;padding:24px 40px;border-top:1px solid rgba(79,69,61,0.3);">
-      <p style="color:#9c8e84;font-size:12px;margin:0 0 4px;">Black Steel Crew &middot; Nairobi, Kenya</p>
-      <p style="color:#4f453d;font-size:11px;margin:0;">+254 726 461 196 &middot; info@tuistech.co.ke</p>
+    <td style="background:#1c1b1c;padding:24px 40px;border-top:1px solid rgba(59,73,76,0.3);">
+      <p style="color:#859397;font-size:12px;margin:0 0 4px;">Black Steel Crew &middot; Nairobi, Kenya</p>
+      <p style="color:#3b494c;font-size:11px;margin:0;">+254 726 461 196 &middot; info@tuistech.co.ke</p>
     </td>
   </tr>`;
 
 const ctaButton = (href: string, label: string) => `
   <table cellpadding="0" cellspacing="0" style="margin-top:24px;">
-    <tr><td style="background:#e8bf9b;">
-      <a href="${href}" style="display:block;padding:14px 28px;color:#442b12;font-size:12px;font-weight:bold;text-decoration:none;font-family:monospace;">${label}</a>
+    <tr><td style="background:#00daf8;">
+      <a href="${href}" style="display:block;padding:14px 28px;color:#001f25;font-size:12px;font-weight:bold;text-decoration:none;font-family:monospace;">${label}</a>
     </td></tr>
   </table>`;
 
 const detailRow = (label: string, value: string) => `
   <tr>
-    <td style="padding:11px 20px;border-bottom:1px solid rgba(79,69,61,0.15);width:40%;">
-      <p style="margin:0;color:#9c8e84;font-size:10px;font-family:monospace;">${label}</p>
+    <td style="padding:11px 20px;border-bottom:1px solid rgba(59,73,76,0.15);width:40%;">
+      <p style="margin:0;color:#859397;font-size:10px;font-family:monospace;">${label}</p>
     </td>
-    <td style="padding:11px 20px;border-bottom:1px solid rgba(79,69,61,0.15);">
-      <p style="margin:0;color:#e5e2e1;font-size:13px;">${value}</p>
+    <td style="padding:11px 20px;border-bottom:1px solid rgba(59,73,76,0.15);">
+      <p style="margin:0;color:#e5e2e3;font-size:13px;">${value}</p>
     </td>
   </tr>`;
 
@@ -122,8 +122,8 @@ function bookingClientHtml(d: { clientName: string; service: string; date: strin
   return wrap(`
     ${headerHtml("BOOKING CONFIRMED")}
     <tr><td style="background:#1c1b1b;padding:36px 40px;">
-      <h2 style="color:#e5e2e1;font-size:22px;margin:0 0 16px;">Karibu, ${d.clientName}. Your consultation is secured.</h2>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:24px;">
+      <h2 style="color:#e5e2e3;font-size:22px;margin:0 0 16px;">Karibu, ${d.clientName}. Your consultation is secured.</h2>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:24px;">
         ${detailRow("BOOKING ID", d.bookingId)}
         ${detailRow("SERVICE", d.service)}
         ${detailRow("DATE", d.date)}
@@ -137,7 +137,7 @@ function bookingAdminHtml(d: { clientName: string; clientEmail: string; service:
   return wrap(`
     ${headerHtml("NEW BOOKING RECEIVED")}
     <tr><td style="background:#1c1b1b;padding:36px 40px;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
         ${detailRow("BOOKING ID", d.bookingId)}
         ${detailRow("CLIENT", d.clientName)}
         ${detailRow("EMAIL", d.clientEmail)}
@@ -181,22 +181,22 @@ function contactAdminHtml(d: { name: string; email: string; phone?: string; mess
 function orderClientHtml(d: { clientName: string; orderId: string; items: OrderItem[]; totalAmount: number; paymentMethod: string; mpesaReceiptNumber?: string | null }) {
   const itemRows = d.items.map(i => `
     <tr>
-      <td style="padding:10px 20px;border-bottom:1px solid rgba(79,69,61,0.15);color:#e5e2e1;">${i.name}</td>
-      <td style="padding:10px 20px;border-bottom:1px solid rgba(79,69,61,0.15);color:#9c8e84;text-align:center;">${i.quantity}</td>
-      <td style="padding:10px 20px;border-bottom:1px solid rgba(79,69,61,0.15);color:#e8bf9b;text-align:right;">KSh ${(i.price * i.quantity).toLocaleString()}</td>
+      <td style="padding:10px 20px;border-bottom:1px solid rgba(59,73,76,0.15);color:#e5e2e3;">${i.name}</td>
+      <td style="padding:10px 20px;border-bottom:1px solid rgba(59,73,76,0.15);color:#859397;text-align:center;">${i.quantity}</td>
+      <td style="padding:10px 20px;border-bottom:1px solid rgba(59,73,76,0.15);color:#00daf8;text-align:right;">KSh ${(i.price * i.quantity).toLocaleString()}</td>
     </tr>`).join("");
   return wrap(`
     ${headerHtml("ORDER CONFIRMED")}
     <tr><td style="background:#1c1b1b;padding:36px 40px;">
-      <h2 style="color:#e5e2e1;font-size:22px;margin:0 0 16px;">Asante, ${d.clientName}. Your order has been placed.</h2>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
+      <h2 style="color:#e5e2e3;font-size:22px;margin:0 0 16px;">Asante, ${d.clientName}. Your order has been placed.</h2>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
         ${detailRow("ORDER ID", d.orderId.slice(-8).toUpperCase())}
         ${detailRow("PAYMENT", d.paymentMethod)}
         ${d.mpesaReceiptNumber ? detailRow("M-PESA RECEIPT", d.mpesaReceiptNumber) : ""}
       </table>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
         ${itemRows}
-        <tr><td colspan="2" style="padding:14px 20px;color:#e8bf9b;font-size:16px;font-weight:bold;text-align:right;">KSh ${d.totalAmount.toLocaleString()}</td></tr>
+        <tr><td colspan="2" style="padding:14px 20px;color:#00daf8;font-size:16px;font-weight:bold;text-align:right;">KSh ${d.totalAmount.toLocaleString()}</td></tr>
       </table>
       ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/dashboard`, "VIEW MY DASHBOARD &rarr;")}
     </td></tr>`);
@@ -205,20 +205,20 @@ function orderClientHtml(d: { clientName: string; orderId: string; items: OrderI
 function orderAdminHtml(d: { clientName: string; clientEmail: string; orderId: string; items: OrderItem[]; totalAmount: number; paymentMethod: string; mpesaReceiptNumber?: string | null }) {
   const itemRows = d.items.map(i => `
     <tr>
-      <td style="padding:10px 20px;border-bottom:1px solid rgba(79,69,61,0.15);color:#e5e2e1;">${i.name} x${i.quantity}</td>
-      <td style="padding:10px 20px;border-bottom:1px solid rgba(79,69,61,0.15);color:#e8bf9b;text-align:right;">KSh ${(i.price * i.quantity).toLocaleString()}</td>
+      <td style="padding:10px 20px;border-bottom:1px solid rgba(59,73,76,0.15);color:#e5e2e3;">${i.name} x${i.quantity}</td>
+      <td style="padding:10px 20px;border-bottom:1px solid rgba(59,73,76,0.15);color:#00daf8;text-align:right;">KSh ${(i.price * i.quantity).toLocaleString()}</td>
     </tr>`).join("");
   return wrap(`
     ${headerHtml("NEW SHOP ORDER")}
     <tr><td style="background:#1c1b1b;padding:36px 40px;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
         ${detailRow("ORDER ID", d.orderId.slice(-8).toUpperCase())}
         ${detailRow("CLIENT", d.clientName)}
         ${detailRow("EMAIL", d.clientEmail)}
         ${detailRow("PAYMENT", d.paymentMethod)}
         ${detailRow("TOTAL", "KSh " + d.totalAmount.toLocaleString())}
       </table>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
         ${itemRows}
       </table>
       ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/admin`, "OPEN ADMIN PANEL &rarr;")}
