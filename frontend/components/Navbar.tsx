@@ -110,7 +110,7 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Black Steel Crew"
-              className="h-25 md:h-50 w-auto object-contain py-1"
+              className="h-12 md:h-20 w-auto object-contain py-1"
             />
           </Link>
 
