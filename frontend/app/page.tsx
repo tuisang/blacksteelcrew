@@ -24,10 +24,10 @@ const HERO_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCskyV7BXgGvhV0SK0WdqRBihOtmDa-5mIZE8sO473g6uk7RVOkFZSGs2XSNfNppVIFRhfZzzbPCyQW_Zp6pXmDNwYtMTH_5jMIe-drRIWWNowg_oEfMokYlSjM8hYjyjdGtPLhlvZAuWUsSyx-mC43AbRJXOXkYJzGQqtSB1G7PXdbxSns4tdQWpVTveM0-C3_sul9iEU-1EQ1598uVMp1xwa28LYqm9WnzEbS4NylbWDP4cE4deCaTKf1FjwJx2at-lcAk6gOBjY";
 
 const CATEGORIES = [
-  { title: "Gates", href: "/projects?category=gates", img: "/categories/gates.jpg" },
-  { title: "Railings & Balustrades", href: "/projects?category=railings", img: "/categories/railings.jpg" },
-  { title: "Staircases", href: "/projects?category=staircases", img: "/categories/staircases.jpg" },
-  { title: "Custom Furniture", href: "/projects?category=furniture", img: "/categories/furniture.jpg" },
+  { title: "Gates", href: "/portfolio?category=gates", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=600&q=80" },
+  { title: "Railings & Balustrades", href: "/portfolio?category=railings", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" },
+  { title: "Staircases", href: "/portfolio?category=staircases", img: "https://images.unsplash.com/photo-1486304873000-235643847519?w=600&q=80" },
+  { title: "Custom Furniture", href: "/portfolio?category=furniture", img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" },
 ];
 
 const WHY_US = [
@@ -38,14 +38,14 @@ const WHY_US = [
 ];
 
 const PRODUCTS = [
-  { id: 1, name: "Custom Gate", image: "/products/gate-placeholder.jpg", price: 245000, reviews: 12 },
-  { id: 2, name: "Steel Railing", image: "/products/railing-placeholder.jpg", price: 85000, reviews: 9 },
-  { id: 3, name: "Staircase Spindle Set", image: "/products/staircase-placeholder.jpg", price: 165000, reviews: 6 },
-  { id: 4, name: "Steel Dining Table", image: "/products/dining-table-placeholder.jpg", price: 92000, reviews: 14 },
-  { id: 5, name: "Balustrade Panel", image: "/products/balustrade-placeholder.jpg", price: 54000, reviews: 5 },
-  { id: 6, name: "Steel Bar Stool", image: "/products/stool-placeholder.jpg", price: 18500, reviews: 21 },
-  { id: 7, name: "Console Table", image: "/products/console-placeholder.jpg", price: 47000, reviews: 8 },
-  { id: 8, name: "Security Gate Panel", image: "/products/security-gate-placeholder.jpg", price: 198000, reviews: 4 },
+  { id: 1, name: "Custom Gate", image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=500&q=80", price: 245000, reviews: 12 },
+  { id: 2, name: "Steel Railing", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80", price: 85000, reviews: 9 },
+  { id: 3, name: "Staircase Spindle Set", image: "https://images.unsplash.com/photo-1486304873000-235643847519?w=500&q=80", price: 165000, reviews: 6 },
+  { id: 4, name: "Steel Dining Table", image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&q=80", price: 92000, reviews: 14 },
+  { id: 5, name: "Balustrade Panel", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80", price: 54000, reviews: 5 },
+  { id: 6, name: "Steel Bar Stool", image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=500&q=80", price: 18500, reviews: 21 },
+  { id: 7, name: "Console Table", image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&q=80", price: 47000, reviews: 8 },
+  { id: 8, name: "Security Gate Panel", image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=500&q=80", price: 198000, reviews: 4 },
 ];
 
 const USD_KES_RATE = 130;
