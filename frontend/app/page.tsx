@@ -99,7 +99,7 @@ export default function HomePage() {
               <span className="material-symbols-outlined text-base">calendar_today</span>
             </Link>
             <Link
-              href="/projects"
+              href="/portfolio"
               className="border border-primary text-primary px-10 py-4 text-body-sm font-semibold rounded-lg hover:bg-primary/10 transition-all flex items-center gap-2"
             >
               View Our Work

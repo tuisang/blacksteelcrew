@@ -218,7 +218,7 @@ export default function AdminPage() {
         <div className="flex items-center gap-4">
           <div className="w-2 h-2 bg-[#e8bf9b] rounded-full animate-pulse" />
           <span className="font-bold text-lg" style={{ fontFamily: "Playfair Display, serif" }}>
-            Forge &amp; Timber
+            Black Steel Crew
           </span>
           <span className="text-xs text-[#9c8e84] tracking-widest px-3 py-1 border border-[#4f453d]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
             ADMIN PANEL

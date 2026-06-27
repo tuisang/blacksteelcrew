@@ -170,7 +170,8 @@ export default function Footer() {
                 { label: "Home", href: "/" },
                 { label: "Services", href: "/services" },
                 { label: "Portfolio", href: "/portfolio" },
-                { label: "Materials", href: "/catalog" },
+                { label: "AI Artisan", href: "/ai-artisan" },
+                { label: "Contact", href: "/contact" },
                 { label: "Reviews", href: "/reviews" },
                 { label: "Book Consultation", href: "/booking" },
               ].map((item) => (

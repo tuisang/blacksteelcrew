@@ -291,7 +291,7 @@ export default function ArtisanChatbot() {
                     }}
                   >
                     <p style={{ margin: 0, fontSize: "13px", color: "#e5e2e3", lineHeight: "1.6" }}>
-                      Karibu. I'm the AI Artisan — trained on decades of timber and steel craft. Ask me anything about our bespoke furniture, materials, pricing, or book a consultation.
+                      Karibu. I'm the AI Artisan — trained on structural steel fabrication and precision welding. Ask me anything about gates, railings, staircases, furniture, pricing, or book a consultation.
                     </p>
                   </div>
                   <div style={{ marginTop: "10px", display: "flex", flexDirection: "column", gap: "6px" }}>

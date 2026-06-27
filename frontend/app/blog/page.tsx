@@ -3,8 +3,8 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Journal | Forge & Timber Atelier Nairobi",
-  description: "Wood and metal care guides, species notes, and craft insights from the Forge & Timber Atelier workshop in Nairobi, Kenya.",
+  title: "Journal | Black Steel Crew Nairobi",
+  description: "Wood and metal care guides, species notes, and craft insights from the Black Steel Crew workshop in Nairobi, Kenya.",
 };
 
 const POSTS = [

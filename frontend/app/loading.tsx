@@ -20,7 +20,7 @@ export default function Loading() {
         />
       </div>
       <p className="text-xs text-[#9c8e84] tracking-[0.3em]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-        FORGE & TIMBER
+        BLACK STEEL CREW
       </p>
       <style>{`
         @keyframes loading-bar {

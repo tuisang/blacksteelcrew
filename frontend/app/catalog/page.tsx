@@ -148,7 +148,7 @@ const materials: Material[] = [
     durability: 85,
     workability: 100,
     priceRange: "KSh 1,200–2,000/m²",
-    description: "A signature Forge & Timber finish. The deep blue-grey tone of gunmetal creates a sophisticated industrial aesthetic that pairs beautifully with walnut and mahogany.",
+    description: "A signature Black Steel Crew finish. The deep blue-grey tone of gunmetal creates a sophisticated industrial aesthetic that pairs beautifully with walnut and mahogany.",
     bestFor: ["Luxury Frames", "Statement Pieces", "Modern Industrial"],
     color: "Deep Blue-Grey",
     grain: "Satin smooth",

@@ -114,7 +114,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Forge & Timber Location"
+                title="Black Steel Crew Location"
               />
               <div className="absolute top-4 left-4 bg-[#1c1b1c]/90 border border-[#00daf8]/30 px-3 py-2 flex items-center gap-2">
                 <div className="w-2 h-2 bg-[#00daf8] rounded-full animate-pulse" />

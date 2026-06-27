@@ -47,7 +47,7 @@ export default function NotFound() {
       </Link>
 
       <p className="text-xs text-[#3b494c] mt-12" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-        FORGE & TIMBER ATELIER · NAIROBI, KENYA
+        BLACK STEEL CREW · NAIROBI, KENYA
       </p>
     </main>
   );
