@@ -20,7 +20,7 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "600"],
 });
 
-const OG_IMAGE = "https://blacksteelcrew.vercel.app/logo-icon.png";
+const OG_IMAGE = "https://blacksteelcrew.tuistech.co.ke/logo-icon.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
