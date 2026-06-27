@@ -20,7 +20,7 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400", "600"],
 });
 
-const OG_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuCskyV7BXgGvhV0SK0WdqRBihOtmDa-5mIZE8sO473g6uk7RVOkFZSGs2XSNfNppVIFRhfZzzbPCyQW_Zp6pXmDNwYtMTH_5jMIe-drRIWWNowg_oEfMokYlSjM8hYjyjdGtPLhlvZAuWUsSyx-mC43AbRJXOXkYJzGQqtSB1G7PXdbxSns4tdQWpVTveM0-C3_sul9iEU-1EQ1598uVMp1xwa28LYqm9WnzEbS4NylbWDP4cE4deCaTKf1FjwJx2at-lcAk6gOBjY";
+const OG_IMAGE = "https://blacksteelcrew.vercel.app/logo-icon.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),

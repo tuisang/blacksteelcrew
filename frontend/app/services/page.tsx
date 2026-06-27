@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Services | Black Steel Crew Nairobi",
     description: "Custom gates, railings and balustrades, staircase fabrication, steel furniture, precision welding and commercial installations in Nairobi, Kenya.",
     url: "https://blacksteelcrew.tuistech.co.ke/services",
-    images: ["https://lh3.googleusercontent.com/aida-public/AB6AXuCskyV7BXgGvhV0SK0WdqRBihOtmDa-5mIZE8sO473g6uk7RVOkFZSGs2XSNfNppVIFRhfZzzbPCyQW_Zp6pXmDNwYtMTH_5jMIe-drRIWWNowg_oEfMokYlSjM8hYjyjdGtPLhlvZAuWUsSyx-mC43AbRJXOXkYJzGQqtSB1G7PXdbxSns4tdQWpVTveM0-C3_sul9iEU-1EQ1598uVMp1xwa28LYqm9WnzEbS4NylbWDP4cE4deCaTKf1FjwJx2at-lcAk6gOBjY"],
+    images: ["https://blacksteelcrew.vercel.app/logo-icon.png"],
   },
   twitter: {
     card: "summary_large_image",
